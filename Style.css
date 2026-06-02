@@ -1,110 +1,58 @@
-element.style {
-    --scroll-bar-width: 15px;
-    --header-bottom: 0px;
-    --skybox-height: 231px;
-    --skybox-height-sticky: 0px;
-}
-@media (min-width: 640px) and (max-width: 1919px) {
-    body:has(.c-adSkyBox_expanded) {
-        --qs-reserved: calc((100vw - var(--scroll-bar-width, 0px)) / 5.485714285714286);
-    }
-}
-body:has(.c-adSkyBox_expanded) {
-body {
-    word-spacing: .1em;
-}
-body {
-    font-size: 1rem;
-    line-height: 1.625rem;
-}
-body {
-    margin: 0;
-}
-body {
-body {
-*, *::before, *::after {
-    box-sizing: border-box;
-    outline: 0;
-}
-user agent stylesheet
-body {
-    display: block;
-    margin: 8px;
-}
-:host, :root {
-    --color-cnet-off-black: #020203;
-    --color-cnet-lime-100: #daffc7;
-    --color-cnet-lime-primary: #b4fd8c;
-    --color-cnet-midnight-100: #f3f3f4;
-    --color-cnet-midnight-200: #ddddde;
-    --color-cnet-midnight-500: #7d7d81;
-    --color-cnet-midnight-600: #5e5e62;
-    --color-cnet-midnight-700: #48484e;
-    --color-cnet-midnight-primary: #121218;
-    --color-cnet-purple-300: #d5baff;
-    --color-cnet-purple-primary: #7a2af5;
-    --color-cnet-red-primary: #e71d1d;
-    --color-cnet-red-700: #ac0b0b;
-    --font-cnet-sans: MonumentGrotesk, sans-serif;
-    --font-cnet-serif: Stardust, serif;
-    --cnet-dotted-border-light: .125rem dotted var(--color-cnet-midnight-200);
-    --cnet-dotted-border-dark: .125rem dotted var(--color-cnet-midnight-primary);
-    --cnet-dotted-border-color: var(--color-gray-50);
-    --cnet-dotted-border-width: .125rem;
-    --cnet-dotted-border-style: dotted;
-    --cnet-dotted-border-color-default: var(--color-gray-50);
-    --cnet-dotted-border-color-light: var(--color-cnet-midnight-200);
-    --cnet-dotted-border-color-dark: var(--color-cnet-midnight-primary);
-    --color-zdnet-black-20: #505259;
-    --color-zdnet-black-primary: #080a12;
-    --font-zdnet-sans: Suisse Intl, sans-serif;
-    --text-28px: 1.75rem;
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --color-red-50: oklch(97.1% .013 17.38);
-    --color-red-100: oklch(93.6% .032 17.717);
-    --color-red-200: oklch(88.5% .062 18.334);
-    --color-red-500: oklch(63.7% .237 25.331);
-    --color-red-600: oklch(57.7% .245 27.325);
-    --color-red-700: oklch(50.5% .213 27.518);
-    --color-red-800: oklch(44.4% .177 26.899);
-    --color-green-500: oklch(72.3% .219 149.579);
-    --color-blue-600: oklch(54.6% .245 262.881);
-    --color-purple-50: oklch(97.7% .014 308.299);
-    --color-purple-200: oklch(90.2% .063 306.703);
-    --color-gray-50: oklch(98.5% .002 247.839);
-    --color-gray-100: oklch(96.7% .003 264.542);
-    --color-gray-200: oklch(92.8% .006 264.531);
-    --color-gray-300: oklch(87.2% .01 258.338);
-    --color-gray-500: oklch(55.1% .027 264.364);
-    --color-gray-600: oklch(44.6% .03 256.802);
-    --color-gray-700: oklch(37.3% .034 259.733);
-    --color-gray-800: oklch(27.8% .033 256.848);
-    --color-zinc-200: oklch(92% .004 286.32);
-    --color-zinc-300: oklch(87.1% .006 286.286);
-Show all properties (36 more)
-}
+/* Root Variables */
 :root {
     --scroll-bar-width: 0px;
     --skybox-height: 0px;
     --header-bottom: 0px;
     --sticky-toc-height: 0px;
+
+    /* CNET Colors */
+    --color-cnet-off-black: #020203;
+    --color-cnet-lime-primary: #b4fd8c;
+    --color-cnet-purple-primary: #7a2af5;
+    --color-cnet-red-primary: #e71d1d;
+
+    /* Fonts */
+    --font-cnet-sans: MonumentGrotesk, sans-serif;
+    --font-cnet-serif: Stardust, serif;
 }
-html {
-    font-family: monumentgrotesk, sans-serif;
-    font-size: 16px;
-    color: #020203;
-}
-html {
-    font-size: 100%;
-    text-size-adjust: 100%;
-}
-*, *::before, *::after {
-    box-sizing: border-box;
-    outline: 0;
-}
-*, *::before, *::after {
+
+/* Reset */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     outline: 0;
 }
 
+/* HTML */
+html {
+    font-family: var(--font-cnet-sans);
+    font-size: 16px;
+    color: var(--color-cnet-off-black);
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    word-spacing: 0.1em;
+}
+
+/* Dynamic values applied by JavaScript or inline styles */
+body.c-adSkyBox-expanded {
+    --scroll-bar-width: 15px;
+    --header-bottom: 0px;
+    --skybox-height: 231px;
+    --skybox-height-sticky: 0px;
+}
+
+/* Responsive layout */
+@media (min-width: 640px) and (max-width: 1919px) {
+    body.c-adSkyBox-expanded {
+        --qs-reserved: calc(
+            (100vw - var(--scroll-bar-width, 0px))
+            / 5.485714285714286
+        );
+    }
+}
